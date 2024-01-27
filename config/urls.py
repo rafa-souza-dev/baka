@@ -21,10 +21,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from authentication.api.viewsets import CreateUserView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     # auth
-    path('api/session/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/session/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/sessions/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/sessions/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/users/', CreateUserView.as_view(), name='create_user'),
 ]
